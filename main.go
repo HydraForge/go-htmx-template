@@ -14,6 +14,9 @@ func main() {
 	r := chi.NewRouter()
 	r.Get("/", templ.Handler(components.Home()).ServeHTTP)
 
+	fileServer := http.FileServer(http.Dir("./frontend/src/static/"))
+	r.Handle("/static/*", http.StripPrefix("/static", fileServer))
+
+	fmt.Println("running on :8000")
 	log.Fatal(http.ListenAndServe(":8000", r))
-	fmt.Println("works")
 }
