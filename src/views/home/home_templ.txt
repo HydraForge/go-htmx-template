@@ -1,0 +1,2 @@
+<div><p class=\"text-red-800\">Home</p><div hx-get=\"/test\">test</div></div>
+<div>test page</div>

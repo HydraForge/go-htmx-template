@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"hydraforge/go-htmx-template/frontend/src/views/home"
+	"hydraforge/go-htmx-template/src/views/home"
 	"log"
 	"net/http"
 
@@ -15,7 +15,7 @@ func main() {
 	r.Get("/", templ.Handler(home.Home()).ServeHTTP)
 	r.Get("/test", templ.Handler(home.Test()).ServeHTTP)
 
-	fileServer := http.FileServer(http.Dir("./frontend/src/assets/"))
+	fileServer := http.FileServer(http.Dir("./src/assets/"))
 	r.Handle("/assets/*", http.StripPrefix("/assets", fileServer))
 
 	fmt.Println("running on :8000")
