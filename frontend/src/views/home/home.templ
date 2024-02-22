@@ -1,0 +1,18 @@
+package home
+
+import "hydraforge/go-htmx-template/frontend/src/views/layout"
+
+templ Home() {
+	@layout.Base() {
+		<div>
+			<p class="text-red-800">Home</p>
+			<div hx-get="/test">
+				test
+			</div>
+		</div>
+	}
+}
+
+templ Test() {
+	<div>test page</div>
+}

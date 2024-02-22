@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"hydraforge/go-htmx-template/frontend/src/components"
+	"hydraforge/go-htmx-template/frontend/src/views/home"
 	"log"
 	"net/http"
 
@@ -12,10 +12,11 @@ import (
 
 func main() {
 	r := chi.NewRouter()
-	r.Get("/", templ.Handler(components.Home()).ServeHTTP)
+	r.Get("/", templ.Handler(home.Home()).ServeHTTP)
+	r.Get("/test", templ.Handler(home.Test()).ServeHTTP)
 
-	fileServer := http.FileServer(http.Dir("./frontend/src/static/"))
-	r.Handle("/static/*", http.StripPrefix("/static", fileServer))
+	fileServer := http.FileServer(http.Dir("./frontend/src/assets/"))
+	r.Handle("/assets/*", http.StripPrefix("/assets", fileServer))
 
 	fmt.Println("running on :8000")
 	log.Fatal(http.ListenAndServe(":8000", r))

@@ -1,6 +1,5 @@
 # GO + HTMX + Templ
 
+## Tailwind
 
-## Tailwind CLI
-
-`npx tailwindcss -i ./src/static/css/input.css -o ./src/static/css/output.css --watch`
+`bun run watch` in frontend folder.
