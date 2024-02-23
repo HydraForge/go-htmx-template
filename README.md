@@ -1,5 +1,5 @@
 # GO + HTMX + Templ
 
 - make tailwind
-- air
+- [air](https://github.com/cosmtrek/air)
 - make templ
